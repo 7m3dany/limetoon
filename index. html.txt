@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LimeToon</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* شريط التنقل العلوي */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+    }
+
+    /* الشعار */
+    .logo h1 {
+      font-size: 36px;
+      font-family: 'Amiri', serif;
+      color: #fff;
+      margin: 0;
+      cursor: pointer;
+      background: linear-gradient(90deg, #f9e35d, #ffcc00);
+      -webkit-background-clip: text;
+      background-clip: text;
+      text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
+    }
+
+    .logo h1:hover {
+      color: #ff6347;
+    }
+
+    /* قائمة جانبية */
+    .side-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      z-index: 1;
+    }
+
+    .side-menu ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .side-menu ul li {
+      margin: 20px 0;
+      cursor: pointer;
+    }
+
+    .side-menu ul li:hover {
+      color: #ff6347;
+    }
+
+    /* التبديل بين الثيم */
+    body.light-theme {
+      background-color: #f8f8f8;
+    }
+
+    body.dark-theme {
+      background-color: #222;
+      color: white;
+    }
+
+    /* زر تغيير الثيم */
+    .theme-btn {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #ffcc00;
+      border: none;
+      color: #333;
+      font-size: 18px;
+      border-radius: 5px;
+    }
+
+    /* التبويبات */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .tabs button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      background-color: #f9e35d;
+      border: none;
+      color: #333;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .tabs button:hover {
+      background-color: #ffcc00;
+    }
+
+    /* عرض المانجا */
+    .manga-container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .chapter {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <h1>لايم تون</h1>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()">تغيير الثيم</button>
+</header>
+
+<!-- التبويبات -->
+<div class="tabs">
+  <button>الرئيسية</button>
+  <button>مكتملة</button>
+  <button>رائجة</button>
+</div>
+
+<!-- عرض المانجا الجديدة -->
+<div class="manga-container">
+  <h2>المانجا الجديدة</h2>
+  <img src="manga-cover.jpg" alt="مانجا" />
+  <p>وصف المانجا هنا...</p>
+  <div class="chapter">الفصل 1: بداية القصة</div>
+</div>
+
+<!-- القائمة الجانبية -->
+<div class="side-menu">
+  <ul>
+    <li>مانجا</li>
+    <li>كوميكس</li>
+    <li>مانهوا</li>
+  </ul>
+</div>
+
+<script>
+  let isDarkTheme = false;
+
+  // وظيفة لتبديل الثيم
+  function toggleTheme() {
+    isDarkTheme = !isDarkTheme;
+    if (isDarkTheme) {
+      document.body.classList.add("dark-theme");
+      document.body.classList.remove("light-theme");
+    } else {
+      document.body.classList.add("light-theme");
+      document.body.classList.remove("dark-theme");
+    }
+  }
+</script>
+
+</body>
+</html>
